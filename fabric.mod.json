@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "autoflight",
+  "version": "1.0.0",
+  "name": "AutoFlight",
+  "description": "Adds a single key that prepares and launches the player into controlled aerial movement.",
+  "authors": ["TDR"],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.tdr.autoflight.AutoFlightMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.x"
+  }
+}
