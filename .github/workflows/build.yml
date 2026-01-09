@@ -1,16 +1,15 @@
-name: Build AutoFlight Mod
+name: Build Fabric Mod
 
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
@@ -19,14 +18,14 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Make Gradle executable
-        run: chmod +x gradlew
+      - name: Install Gradle
+        run: sudo apt update && sudo apt install gradle -y
 
       - name: Build mod
-        run: ./gradlew build
+        run: gradle build
 
       - name: Upload jar
         uses: actions/upload-artifact@v4
         with:
-          name: AutoFlight-jar
+          name: fabric-mod
           path: build/libs/*.jar
